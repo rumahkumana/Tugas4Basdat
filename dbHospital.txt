@@ -1,0 +1,71 @@
+nama database : hospital
+
+tables :
+1. Pasien
+CONSTRAINT DOMAIN :: kode_rawat : 1100-1900
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| ID_Pasien     | int(20)      | NO   | PRI | NULL    | auto_increment |
+| Nama_Pasien   | varchar(30)  | YES  |     | NULL    |                |
+| Alamat_Pasien | varchar(100) | YES  |     | NULL    |                |
+| Kode_Rawat    | varchar(20)  | YES  |     | NULL    |                |
+| Penyakit      | varchar(20)  | YES  |     | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+2. Perawat
+CONSTRAINT DOMAIN :: ~
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| ID_Perawat     | int(20)      | NO   | PRI | NULL    | auto_increment |
+| Nama_Perawat   | varchar(30)  | YES  |     | NULL    |                |
+| Alamat_Perawat | varchar(100) | YES  |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
+
+3. Infrastruktur
+CONSTRAINT DOMAIN :: ~
++--------+---------+------+-----+---------+----------------+
+| Field  | Type    | Null | Key | Default | Extra          |
++--------+---------+------+-----+---------+----------------+
+| No_Reg | int(20) | NO   | PRI | NULL    | auto_increment |
++--------+---------+------+-----+---------+----------------+
+
+4. Supplies
+CONSTRAINT DOMAIN :: ~
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| Kode_Transaksi | varchar(25) | NO   | PRI | NULL    |       |
+| Nama_Supplies  | varchar(30) | YES  |     | NULL    |       |
+| Supplier       | varchar(30) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+
+5. Departemen
+CONSTRAINT DOMAIN :: ~
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Nama  | varchar(50) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
++--------------------------+
+| Nama                     |
++--------------------------+
+| Ilmu Kesehatan Anak      |
+| Ilmu Kesehatan Mata      |
+| Ilmu Penyakit Dalam      |
+| Kebidanan dan Kandungan  |
+| Telinga Hidung Tenggorok |
++--------------------------+
+
+6. Dokter
+CONSTRAINT DOMAIN :: Nama_Departemen FOREIGN KEY ke Nama_Departemen table DEPARTEMEN
++-----------------+--------------+------+-----+---------+----------------+
+| Field           | Type         | Null | Key | Default | Extra          |
++-----------------+--------------+------+-----+---------+----------------+
+| ID_Dokter       | int(20)      | NO   | PRI | NULL    | auto_increment |
+| Nama_Dokter     | varchar(30)  | YES  |     | NULL    |                |
+| Alamat_Dokter   | varchar(100) | YES  |     | NULL    |                |
+| Spesialisasi    | varchar(30)  | YES  |     | NULL    |                |
+| Nama_Departemen | varchar(50)  | YES  | MUL | NULL    |                |
++-----------------+--------------+------+-----+---------+----------------+
