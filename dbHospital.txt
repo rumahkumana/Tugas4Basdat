@@ -69,3 +69,49 @@ CONSTRAINT DOMAIN :: Nama_Departemen FOREIGN KEY ke Nama_Departemen table DEPART
 | Spesialisasi    | varchar(30)  | YES  |     | NULL    |                |
 | Nama_Departemen | varchar(50)  | YES  | MUL | NULL    |                |
 +-----------------+--------------+------+-----+---------+----------------+
+
+7. No_Telpon_Perawat
+CONSTRAINT DOMAIN :: ID_Perawat FOREIGN KEY ke ID_Perawat table Perawat
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| ID_Perawat      | varchar(3)  | YES  |     | NULL    |       |
+| No_Telp_Perawat | varchar(50) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+
+8. Pembayaran
+CONSTRAINT DOMAIN :: ID_Pasien FOREIGN KEY ke ID_Pasien table Pasien
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| ID_Pasien      | int(20)     | NO   | PRI | NULL    | auto_increment |
+| Kode_Transaksi | varchar(25) | NO   | PRI | NULL    |                |
+| Tanggal        | varchar(20) | YES  |     | NULL    |                |
+| Biaya_Obat     | int(20)     | YES  |     | NULL    |                |
+| Biaya_Tindakan | int(20)     | YES  |     | NULL    |                |
+| Biaya_Lab      | int(20)     | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+9. Grup_Penanganan
+ CONSTRAINT DOMAIN :: ID_Perawat FOREIGN KEY ke ID_Perawat tabel Perawat
+  ID_Dokter FOREIGN KEY ke ID_Dokter tabel Dokter
++------------+------------+------+-----+---------+-------+
+| Field      | Type       | Null | Key | Default | Extra |
++------------+------------+------+-----+---------+-------+
+| ID_Perawat | varchar(3) | NO   | PRI | NULL    |       |
+| ID_Dokter  | varchar(5) | NO   | PRI | NULL    |       |
++------------+------------+------+-----+---------+-------+
+
+10. Berobat
+CONSTRAINT DOMAIN : ID_Pasien FOREIGN KEY ke ID_Pasien table Pasien,
+ID_Perawat FOREIGN KEY ke ID_Perawat table Perawat,
+ID_Dokter FOREIGN KEY ke ID_Dokter table Dokter,
+No_Apotek FOREIGN KEY ke No_Reg_Infra table Apotek,
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| ID_Pasien  | varchar(5)  | NO   | PRI | NULL    |       |
+| ID_Perawat | varchar(3)  | NO   | PRI | NULL    |       |
+| No_Apotek  | varchar(50) | NO   | PRI | NULL    |       |
+| ID_Dokter  | varchar(5)  | NO   | PRI | NULL    |       |
++------------+-------------+------+-----+---------+-------+
