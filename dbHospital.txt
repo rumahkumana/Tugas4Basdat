@@ -115,3 +115,48 @@ No_Apotek FOREIGN KEY ke No_Reg_Infra table Apotek,
 | No_Apotek  | varchar(50) | NO   | PRI | NULL    |       |
 | ID_Dokter  | varchar(5)  | NO   | PRI | NULL    |       |
 +------------+-------------+------+-----+---------+-------+
+
+11. Non_Apotek
+CONSTRAINT DOMAIN :: No_Reg_Infra FOREIGN KEY ke Infrastruktur table Infrastruktur
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| No_Reg_Infra | int(20)     | NO   | PRI | NULL    |       |
+| Nama_Dep     | varchar(50) | YES  | MUL | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+
+12. Kamar
+CONSTRAINT DOMAIN :: No_Reg_Inf_Ap FOREIGN KEY ke No_Reg_Infra table Non_Apotek
++---------------+---------+------+-----+---------+-------+
+| Field         | Type    | Null | Key | Default | Extra |
++---------------+---------+------+-----+---------+-------+
+| No_Reg_Inf_Ap | int(20) | NO   | PRI | NULL    |       |
+| Nomor_Kamar   | int(20) | YES  | UNI | NULL    |       |
++---------------+---------+------+-----+---------+-------+
+
+13. Laboratorium
+CONSTRAINT DOMAIN :: No_Reg_Inf_Lb FOREIGN KEY ke No_Reg_Infra Non_Apotek
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| No_Reg_Inf_Lb | int(20)     | NO   | PRI | NULL    |       |
+| Kode_Lab      | int(20)     | NO   | PRI | NULL    |       |
+| Nama_Lab      | varchar(30) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+14. No_Telpon_Staff
+
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| ID_Staff      | int(20)     | NO   | PRI | NULL    |       |
+| No_Telp_Staff | varchar(25) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+15. Perlengkapan
+
++-----------------+---------+------+-----+---------+-------+
+| Field           | Type    | Null | Key | Default | Extra |
++-----------------+---------+------+-----+---------+-------+
+| ID_perlengkapan | int(20) | NO   | PRI | NULL    |       |
++-----------------+---------+------+-----+---------+-------+

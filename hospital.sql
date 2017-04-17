@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `apotek`
+--
+
+DROP TABLE IF EXISTS `apotek`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `apotek` (
+  `No_Reg_Infra` varchar(10) NOT NULL,
+  `Nama` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`No_Reg_Infra`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `apotek`
+--
+
+LOCK TABLES `apotek` WRITE;
+/*!40000 ALTER TABLE `apotek` DISABLE KEYS */;
+INSERT INTO `apotek` VALUES ('1001','Apotek Sumber Sehat'),('1002','Apotek Sumber Waras'),('1003','Apotek Jaya');
+/*!40000 ALTER TABLE `apotek` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `berobat`
 --
 
@@ -163,6 +187,30 @@ LOCK TABLES `kamar` WRITE;
 /*!40000 ALTER TABLE `kamar` DISABLE KEYS */;
 INSERT INTO `kamar` VALUES (1004,1),(1005,2),(1006,3),(1007,4),(1008,5),(1009,6),(1010,7),(1011,8),(1012,9),(1013,10),(1014,11),(1015,12),(1016,13),(1017,14),(1018,15),(1019,16),(1020,17),(1021,18),(1022,19),(1023,20),(1024,21),(1025,22),(1026,23),(1027,24),(1028,25),(1029,26),(1030,27),(1031,28),(1032,29),(1033,30),(1034,31),(1035,32),(1036,33),(1037,34),(1038,35),(1039,36),(1040,37),(1041,38),(1042,39),(1043,40),(1044,41),(1045,42),(1046,43),(1047,44),(1048,45),(1049,46),(1050,47),(1051,48),(1052,49),(1053,50),(1054,51),(1055,52),(1056,53),(1057,54),(1058,55),(1059,56),(1060,57),(1061,58),(1062,59),(1063,60),(1064,61),(1065,62),(1066,63),(1067,64),(1068,65),(1069,66),(1070,67),(1071,68),(1072,69),(1073,70),(1074,71),(1075,72),(1076,73),(1077,74),(1078,75),(1079,76),(1080,77),(1081,78),(1082,79),(1083,80),(1084,81);
 /*!40000 ALTER TABLE `kamar` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `kebersihan`
+--
+
+DROP TABLE IF EXISTS `kebersihan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `kebersihan` (
+  `ID_Staff` int(11) NOT NULL,
+  `No_Reg_Inf` int(11) NOT NULL,
+  PRIMARY KEY (`ID_Staff`,`No_Reg_Inf`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `kebersihan`
+--
+
+LOCK TABLES `kebersihan` WRITE;
+/*!40000 ALTER TABLE `kebersihan` DISABLE KEYS */;
+INSERT INTO `kebersihan` VALUES (1,1001),(2,1002),(3,1003),(4,1004),(5,1005),(6,1006),(7,1007),(8,1008),(9,1009),(10,1010),(11,1011),(12,1012),(13,1013),(14,1014),(15,1015),(16,1016),(17,1017),(18,1018),(19,1019),(20,1020),(21,1021),(22,1022),(23,1023),(24,1024),(25,1025),(26,1026),(27,1027),(28,1028),(29,1029),(30,1030),(31,1031),(32,1032),(33,1033),(34,1034),(35,1035),(36,1036),(37,1037),(38,1038),(39,1039),(40,1040),(41,1041),(42,1042),(43,1043),(44,1044),(45,1045),(46,1046),(47,1047),(48,1048),(49,1049),(50,1050),(51,1051),(52,1052),(53,1053),(54,1054),(55,1055),(56,1056),(57,1057),(58,1058),(59,1059),(60,1060),(61,1061),(62,1062),(63,1063),(64,1064),(65,1065),(66,1066),(67,1067),(68,1068),(69,1069),(70,1070),(71,1071),(72,1072),(73,1073),(74,1074),(75,1075),(76,1076),(77,1077),(78,1078),(79,1079),(80,1080),(81,1081),(82,1082),(83,1083),(84,1084),(85,1085),(86,1086),(87,1087),(88,1088),(89,1089),(90,1090),(91,1091),(92,1092),(93,1093),(94,1094),(95,1095),(96,1096),(97,1097),(98,1098),(99,1099),(100,1100);
+/*!40000 ALTER TABLE `kebersihan` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -369,6 +417,31 @@ INSERT INTO `perlengkapan` VALUES (101),(102),(103),(104),(105),(106),(107),(108
 UNLOCK TABLES;
 
 --
+-- Table structure for table `staff`
+--
+
+DROP TABLE IF EXISTS `staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `staff` (
+  `ID_Staff` int(11) NOT NULL,
+  `Nama` varchar(50) DEFAULT NULL,
+  `Supplier` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID_Staff`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `staff`
+--
+
+LOCK TABLES `staff` WRITE;
+/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES (1,'Carlos Jacobs','PD-Rx Pharmaceuticals, Inc.'),(2,'Jennifer Hansen','Teva Pharmaceuticals USA Inc'),(3,'Heather Washington','West-ward Pharmaceutical Corp'),(4,'Ruby Wallace','Unifirst First Aid Corporation'),(5,'Ashley Morris','Hyland\'s'),(6,'Carl Scott','Aidarex Pharmaceuticals LLC'),(7,'Gary Austin','Zhuhai Jenny\'s Choice Manufacturing Limited'),(8,'Deborah Rogers','Uriel Pharmacy Inc.'),(9,'Jacqueline Chavez','Bryant Ranch Prepack'),(10,'Julia Howard','Gemini Laboratories, LLC'),(11,'Louise Phillips','REMEDYREPACK INC.'),(12,'Alan Olson','DOLGENCORP, LLC'),(13,'Roy Hill','State of Florida DOH Central Pharmacy'),(14,'Larry Chapman','Shopko Stores Operating Co., LLC'),(15,'Justin Morrison','Contract Pharmacy Services-PA'),(16,'Daniel Ellis','International Wholesale, Inc.'),(17,'Doris Hunter','ConvaTec Inc'),(18,'Fred Flores','Bryant Ranch Prepack'),(19,'Raymond Reid','Hikma Pharmaceutical'),(20,'Charles Diaz','REMEDYREPACK INC.'),(21,'Albert Jenkins','American Sales Company'),(22,'Shawn Carroll','DZA Brands LLC'),(23,'Eric Anderson','TGone Remedies Ltd'),(24,'Joshua Mills','American Health Packaging'),(25,'William Murray','Your Military Exchanges'),(26,'David Peters','American Health Packaging'),(27,'Heather Carroll','Kinray, Inc'),(28,'Brandon Hall','St Marys Medical Park Pharmacy'),(29,'Jack Kelley','Parke-Davis Div of Pfizer Inc'),(30,'Deborah Wells','Reckitt Benckiser LLC'),(31,'Theresa Collins','Novartis Pharmaceuticals Corporation'),(32,'Ann Washington','Hospira, Inc.'),(33,'Justin Hawkins','Topco Associates LLC'),(34,'Robert Cook','Unifirst First Aid Corporation'),(35,'Howard Ramos','Unit Dose Services'),(36,'John Walker','Peaceful Mountain, Inc.'),(37,'Betty Lane','Unit Dose Services'),(38,'Douglas Lee','APP Pharmaceuticals, LLC'),(39,'Emily Collins','Ballay Pharmaceuticals, Inc.'),(40,'Gloria Fields','Physicians Total Care, Inc.'),(41,'Norma Grant','Target Corporation'),(42,'Michelle Foster','Legacy Pharmaceutical Packaging'),(43,'Sharon Wells','Nelco Laboratories, Inc.'),(44,'Melissa Howell','Natural Health Supply'),(45,'Joseph Peters','B. Braun Medical Inc.'),(46,'Kathleen Jordan','BioComp Pharma, Inc.'),(47,'Joan Austin','Nelco Laboratories, Inc.'),(48,'Brian Hart','Safeway Inc.'),(49,'Dennis Williams','Home Sweet Homeopathics'),(50,'Ernest Harper','Nelco Laboratories, Inc.'),(51,'Jeremy Hamilton','Antigen Laboratories, Inc.'),(52,'Kathryn George','AvKARE, Inc.'),(53,'Barbara Reynolds','Claris Lifesciences Inc.'),(54,'Patricia Rose','Meijer Distribution Inc'),(55,'Justin Thompson','Uriel Pharmacy Inc'),(56,'Julie Anderson','BioActive Nutrional, Inc.'),(57,'Gloria Meyer','GUILIN TIANHE PHARMACEUTICAL CO LTD'),(58,'Matthew Romero','Aptalis Pharma US, Inc.'),(59,'Nicole Ray','Ningbo Correway Cosmetics Co., Ltd.'),(60,'Virginia Gonzalez','Kmart Corp'),(61,'Stephanie Kim','Centurion Labs, LLC'),(62,'Jason Willis','Mylan Institutional Inc.'),(63,'Heather Williamson','Physicians Total Care, Inc.'),(64,'Chris Green','Shire US Manufacturing Inc.'),(65,'Raymond Burton','Actavis Pharma, Inc.'),(66,'Cheryl Bowman','Gulf State Chemical and Welding Supply Inc.'),(67,'Michelle Armstrong','Deseret Biologicals, Inc.'),(68,'Kelly Sullivan','General Injectables & Vaccines, Inc'),(69,'Lawrence Bennett','Meijer Distribution, Inc.'),(70,'Mildred Gonzalez','Citron Pharma LLC'),(71,'Judy Lawson','Novartis Pharmaceuticals Corporation'),(72,'Jessica Reid','NCS HealthCare of KY, Inc dba Vangard Labs'),(73,'Debra Jones','Actavis Elizabeth LLC'),(74,'Lillian Russell','CHANEL PARFUMS BEAUTE'),(75,'Janice Brown','REMEDYREPACK INC.'),(76,'Johnny Hamilton','Johnson & Johnson Healthcare Products, Division of'),(77,'Timothy Bradley','Procter & Gamble Manufacturing Company'),(78,'Samuel Wells','MSD Consumer Care, Inc.'),(79,'Justin Peterson','Apotex Corp.'),(80,'Lois Parker','Teva Pharmaceuticals USA Inc'),(81,'Willie Butler','A-S Medication Solutions LLC'),(82,'Brenda Rogers','Poly Pharmaceuticals, Inc.'),(83,'Marilyn Banks','Nelco Laboratories, Inc.'),(84,'Roger Cunningham','WALGREEN CO.'),(85,'Amy Howell','Winning Solutions'),(86,'Eugene Smith','ALK-Abello, Inc.'),(87,'Jerry Stephens','Glenmark Generics Inc. USA'),(88,'Ronald Robertson','Qualitest Pharmaceuticals'),(89,'Henry Spencer','Teva Pharmaceuticals USA Inc'),(90,'Anthony Brooks','Chain Drug Marketing Association'),(91,'Irene Martinez','Washington Homeopathic Products'),(92,'Clarence Alexander','Lessors, Incorporated'),(93,'Stephen Hernandez','Inspire Pharmaceuticals, Inc.'),(94,'Janice Kennedy','Nelco Laboratories, Inc.'),(95,'Kenneth Thompson','Lake Erie Medical & Surgical Supply DBA Quality Ca'),(96,'Harry Scott','Nelson Bach USA, Ltd.'),(97,'Joe Simpson','WOONSOCKET PRESCRIPTION CENTER,INCORPORATED'),(98,'Aaron Alexander','J. A. Cosmetics U.S. INC'),(99,'Anthony Harris','Watson Laboratories, Inc.'),(100,'Karen Garza','Pfizer Laboratories Div Pfizer Inc'),(101,'Sara Gonzalez','Greenstone LLC'),(102,'Antonio Fowler','H E B'),(103,'Walter Elliott','Antigen Laboratories, Inc.'),(104,'Eugene Graham','DAVA Pharmaceuticals, Inc.'),(105,'Deborah Cole','Aetna Felt Corp'),(106,'Ruth Cruz','LLC Federal Solutions'),(107,'Juan Henderson','LG Household and Healthcare, Inc.'),(108,'Ashley Hamilton','Kosan Kozmetik Sanayi ve Ticaret A.S.'),(109,'Raymond Shaw','State of Florida DOH Central Pharmacy'),(110,'Alan Gomez','Richmond Pharmaceuticals, Inc.'),(111,'Peter Dunn','AAA Pharmaceutical, Inc.'),(112,'Gary Crawford','Apotheca Company'),(113,'Betty Turner','Aphena Pharma Solutions - Tennessee, LLC'),(114,'Ann Torres','Mondelez Global LLC'),(115,'Maria Perry','Boca Pharmacal, LLC'),(116,'Pamela Lee','Pfizer Consumer Healthcare'),(117,'Jimmy Campbell','Apotheca Company'),(118,'Evelyn Wright','Bel-Art Products'),(119,'Robin Reynolds','REMEDYREPACK INC.'),(120,'Steve Reid','AbbVie Inc.'),(121,'Ashley Fisher','Wise Consumer Products'),(122,'Brenda Henderson','Conopco Inc. d/b/a Unilever'),(123,'Earl Torres','Homeostasis Laboratories, Inc.'),(124,'Joan Howard','L. Perrigo Company'),(125,'Jennifer Fields','LG Household and Healthcare, Inc.'),(126,'Arthur Willis','Apotheca Company'),(127,'Wanda Ramos','Golden State Medical Supply, Inc.'),(128,'Laura Willis','Greenstone LLC'),(129,'Robin Harvey','Janssen Pharmaceuticals, Inc.'),(130,'Anne Price','ALK-Abello, Inc.'),(131,'Juan Spencer','West-ward Pharmaceutical Corp.'),(132,'Laura Cox','Meijer Distribution Inc'),(133,'Norma Harris','Legacy Pharmaceutical Packaging'),(134,'Frances Diaz','St Marys Medical Park Pharmacy'),(135,'Amanda Foster','Apotex Corp.'),(136,'Carl Lynch','Newton Laboratories, Inc.'),(137,'Samuel Ramos','SJ Creations, Inc.'),(138,'Eric Morris','Homeocare Laboratories'),(139,'Deborah Stone','L\'Oreal USA Products Inc'),(140,'Stephen Shaw','Genesan Systems'),(141,'Frances Hunt','ALK-Abello, Inc.'),(142,'Craig Martin','Dr.Reddy\'s Laboratories Ltd'),(143,'Angela Ruiz','Integria Healthcare Ballina'),(144,'Mary Bailey','ProStat First Aid'),(145,'Raymond Holmes','TYA Pharmaceuticals'),(146,'Jacqueline Stone','HYVEE INC'),(147,'Joe Flores','Bare Escentuals Beauty Inc.'),(148,'Paul Morrison','Amarin Pharma Inc.'),(149,'Roy Baker','State of Florida DOH Central Pharmacy'),(150,'Andrea Bailey','Rebel Distributors Corp'),(151,'Sandra Banks','AMOREPACIFIC'),(152,'Pamela Green','Golden State Medical Supply, Inc'),(153,'Mildred Hunter','Elizabeth Arden, Inc'),(154,'Judith Perkins','Coty US LLC'),(155,'Louise Gutierrez','Target Corporation'),(156,'Teresa Hall','Nelco Laboratories, Inc.'),(157,'Dennis Matthews','Superior Welding Supply Co'),(158,'Edward Walker','Raining Rose, Inc.'),(159,'Timothy Stephens','Greenstone LLC'),(160,'Howard Morgan','Lake Erie Medical DBA Quality Care Products LLC'),(161,'Jesse Patterson','Lake Erie Medical DBA Quality Care Products LLC'),(162,'Jonathan Marshall','Heritage Pharmaceuticals Inc.'),(163,'Joyce Grant','Jubilant HollisterStier LLC'),(164,'Rebecca Richardson','Patriot Pharmaceuticals LLC'),(165,'Mary West','Kmart Corporation'),(166,'Donna Watkins','Purdue Pharma LP'),(167,'Michael Wagner','Lake Erie Medical DBA Quality Care Products LLC'),(168,'Donna Hamilton','Contract Pharmacy Services-PA'),(169,'Lawrence Ryan','Rhodes Pharmaceuticals L.P.'),(170,'Jason Ross','REMEDYREPACK INC.'),(171,'Ernest Murray','SYOXSA, Inc.'),(172,'Joshua Kim','Gurwitch Products, L.L.C.'),(173,'Marie Simpson','Bayer HealthCare Pharmaceuticals Inc.'),(174,'Steve Scott','Zenith Medicosm SL'),(175,'Terry Morris','Energique, Inc.'),(176,'Diane Alexander','Blenheim Pharmacal, Inc.'),(177,'Jane Mason','Triax Pharmaceuticals, LLC'),(178,'Donna Crawford','Nichiban Company Limited'),(179,'Samuel Palmer','BioActive Nutritional, Inc.'),(180,'Christine Sims','Cardinal Health'),(181,'Evelyn Stevens','PD-Rx Pharmaceuticals, Inc.'),(182,'David Hart','Beutlich LP, Pharmaceuticals'),(183,'Randy Schmidt','King Bio Inc.'),(184,'Anne Burke','Bare Escentuals Beauty, Inc.'),(185,'Ruby Evans','Major Pharmaceuticals'),(186,'Christopher West','Advanced Generic Corporation'),(187,'Louis Gilbert','Chain Drug Consortium'),(188,'Donald Mitchell','DAVA Pharmaceuticals, Inc.'),(189,'Mark Lawrence','STERIS Corporation'),(190,'Martin Morales','NCS HealthCare of KY, Inc dba Vangard Labs'),(191,'Ashley Sims','CARROLL COMPANY'),(192,'Ruth Garza','Procter & Gamble Manufacturing Company'),(193,'Tina Carr','Solazyme, Inc.'),(194,'Brian Sanchez','REMEDYREPACK INC.'),(195,'Carlos Jenkins','Baxter Healthcare Corporation'),(196,'Carl Alexander','Cadila Healthcare Limited'),(197,'Harold Fuller','SHISEIDO AMERICAS CORPORATION'),(198,'Betty Willis','Topco Associates LLC'),(199,'Tammy Porter','Mylan Pharmaceuticals Inc.'),(200,'Jose Evans','ANIP Acquisition Company');
+/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `supplies`
 --
 
@@ -402,4 +475,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-17 14:29:39
+-- Dump completed on 2017-04-17 16:11:42
