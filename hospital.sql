@@ -142,6 +142,36 @@ INSERT INTO `grup_penanganan` VALUES ('1','17'),('1','35'),('101','80'),('102','
 UNLOCK TABLES;
 
 --
+-- Table structure for table `inap`
+--
+
+DROP TABLE IF EXISTS `inap`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inap` (
+  `No_Kamar` int(20) NOT NULL,
+  `ID_Pasien` int(20) NOT NULL,
+  `No_Apotek` varchar(10) NOT NULL,
+  PRIMARY KEY (`No_Kamar`,`ID_Pasien`,`No_Apotek`),
+  KEY `FK_Inap_Pasien` (`ID_Pasien`),
+  KEY `FK_Inap_Apotek` (`No_Apotek`),
+  CONSTRAINT `FK_Inap_Apotek` FOREIGN KEY (`No_Apotek`) REFERENCES `apotek` (`No_Reg_Infra`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_Inap_Kamar` FOREIGN KEY (`No_Kamar`) REFERENCES `kamar` (`No_Reg_Inf_Ap`),
+  CONSTRAINT `FK_Inap_Pasien` FOREIGN KEY (`ID_Pasien`) REFERENCES `pasien` (`ID_Pasien`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inap`
+--
+
+LOCK TABLES `inap` WRITE;
+/*!40000 ALTER TABLE `inap` DISABLE KEYS */;
+INSERT INTO `inap` VALUES (1004,42,'1001'),(1004,193,'1003'),(1005,37,'1003'),(1005,43,'1001'),(1005,53,'1003'),(1005,144,'1001'),(1006,51,'1001'),(1006,121,'1001'),(1007,19,'1001'),(1007,108,'1002'),(1007,122,'1001'),(1007,155,'1002'),(1009,9,'1003'),(1009,69,'1003'),(1010,22,'1002'),(1011,25,'1001'),(1011,43,'1003'),(1011,60,'1001'),(1011,76,'1003'),(1011,163,'1001'),(1012,3,'1002'),(1012,123,'1001'),(1012,171,'1003'),(1014,96,'1003'),(1015,34,'1001'),(1016,131,'1003'),(1017,21,'1002'),(1017,65,'1003'),(1017,125,'1003'),(1017,132,'1003'),(1017,191,'1002'),(1018,186,'1002'),(1020,25,'1001'),(1020,56,'1002'),(1021,159,'1001'),(1022,114,'1002'),(1022,139,'1001'),(1024,94,'1001'),(1024,98,'1003'),(1024,158,'1001'),(1024,167,'1003'),(1025,4,'1003'),(1025,78,'1003'),(1025,79,'1003'),(1025,87,'1001'),(1025,137,'1002'),(1025,189,'1003'),(1026,152,'1003'),(1026,162,'1003'),(1027,3,'1001'),(1027,6,'1002'),(1027,10,'1001'),(1027,86,'1002'),(1028,46,'1003'),(1030,127,'1002'),(1030,195,'1002'),(1031,101,'1001'),(1031,150,'1003'),(1032,126,'1002'),(1032,184,'1001'),(1032,190,'1002'),(1033,100,'1002'),(1034,8,'1002'),(1034,80,'1003'),(1035,121,'1001'),(1035,144,'1002'),(1036,6,'1002'),(1036,98,'1003'),(1036,127,'1001'),(1037,130,'1002'),(1037,148,'1002'),(1037,189,'1002'),(1038,60,'1002'),(1038,150,'1002'),(1039,73,'1002'),(1040,40,'1001'),(1041,48,'1001'),(1041,189,'1002'),(1041,198,'1001'),(1042,77,'1002'),(1043,102,'1002'),(1043,137,'1001'),(1044,42,'1003'),(1045,148,'1002'),(1045,160,'1001'),(1046,12,'1001'),(1047,70,'1002'),(1049,70,'1003'),(1050,76,'1003'),(1050,158,'1003'),(1051,67,'1003'),(1051,76,'1002'),(1051,135,'1003'),(1052,95,'1003'),(1052,104,'1002'),(1053,49,'1003'),(1056,177,'1003'),(1057,117,'1003'),(1058,64,'1001'),(1058,154,'1001'),(1059,34,'1003'),(1059,88,'1002'),(1060,22,'1002'),(1061,124,'1001'),(1062,197,'1002'),(1063,134,'1003'),(1063,157,'1002'),(1064,19,'1002'),(1064,177,'1003'),(1064,197,'1001'),(1065,107,'1002'),(1065,141,'1001'),(1065,178,'1002'),(1066,87,'1002'),(1067,91,'1001'),(1067,168,'1001'),(1068,80,'1001'),(1068,129,'1001'),(1068,180,'1002'),(1068,194,'1001'),(1069,18,'1003'),(1069,133,'1003'),(1069,136,'1003'),(1069,158,'1002'),(1069,196,'1003'),(1070,77,'1002'),(1071,29,'1003'),(1071,124,'1003'),(1072,103,'1001'),(1073,33,'1002'),(1073,104,'1001'),(1074,30,'1002'),(1074,43,'1001'),(1074,140,'1003'),(1075,95,'1002'),(1076,3,'1001'),(1076,90,'1002'),(1077,46,'1001'),(1077,75,'1002'),(1077,180,'1001'),(1078,73,'1002'),(1078,129,'1003'),(1079,24,'1002'),(1079,175,'1002'),(1080,47,'1002'),(1080,120,'1002'),(1080,189,'1002'),(1081,97,'1003'),(1081,112,'1003');
+/*!40000 ALTER TABLE `inap` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `infrastruktur`
 --
 
@@ -465,6 +495,36 @@ LOCK TABLES `supplies` WRITE;
 INSERT INTO `supplies` VALUES ('00-237-3792','DOLORACIN','Dibbert-Murphy'),('00-989-4153','GABAPENTIN','Bauch, Stiedemann and Russel'),('01-220-8972','Allopurinol','Ankunding-West'),('01-487-6391','Oxygen','Pollich, Pfeffer and Lindgren'),('03-481-8365','SPF30 SUPER SENSITIVE SUNSCREE','Hintz-Keeling'),('03-658-2446','Up and Up Migraine Relief','Torphy-Osinski'),('04-367-3608','Amlodipine Besylate','Fadel-O\'Hara'),('04-537-1905','Viread','Hammes, Batz and Dietrich'),('04-638-1389','Desmopressin Acetate','Collins-Daugherty'),('04-827-7443','MANUGEL 85','Mueller-O\'Connell'),('05-200-0077','Dexamethasone','Schiller-Emmerich'),('05-372-9752','Senokot-S','Parker-Abshire'),('06-743-3925','Elliotts B','Monahan, Marquardt and Dach'),('06-755-2420','7 Select Childrens Ibuprofen','Kirlin LLC'),('06-778-6443','Voltaren','Marks Group'),('06-967-3912','Curly Dock','Lesch, McCullough and Turner'),('08-176-6812','ESIKA','Stokes and Sons'),('09-430-8238','Diazepam','Mayert-Blick'),('10-130-0081','Clobetasol Propionate','Kohler, Greenholt and Wilkinso'),('12-983-0110','Hydralazine Hydrochloride','Hayes, Predovic and Hammes'),('13-990-2865','Advanced Healing','Kuvalis LLC'),('14-487-8912','Instant Hand Sanitizer - Vanil','McGlynn and Sons'),('15-394-9067','Benztropine Mesylate','Bauch-Langosh'),('17-204-6907','Standardized Grass Pollen, Tim','Sanford and Sons'),('18-810-1112','La Roche Posay Laboratoire Der','Mante, Leuschke and Ryan'),('19-369-5651','ALTERNARIA TENUIS','Terry, Buckridge and Feil'),('20-395-4238','La Flecha Japonesa','Stark-Boyle'),('22-333-7790','Venlafaxine','Beahan-Legros'),('23-474-9670','Losartan potassium','Shanahan-Wolf'),('23-990-2060','Levetiracetam','McGlynn-Conroy'),('25-502-6462','Nectarine','Sauer-Kohler'),('25-517-0902','Ketorolac Tromethamine','Homenick Inc'),('27-799-3315','KROGER','Emmerich LLC'),('29-342-8006','ERY-TAB','Smitham, Stamm and Dietrich'),('29-752-4872','Borrelia Babesia Remedy','Sporer, Collins and Bahringer'),('30-221-6769','NARS ALL DAY LUMINOUS FOUNDATI','Kris-Rohan'),('31-856-9260','Fondaparinux Sodium','Eichmann LLC'),('31-864-6105','Metronidazole','Yundt-Walter'),('32-207-9605','Pioglitazone and Metformin Hyd','Lind-Bins'),('34-926-8426','Levothyroxine sodium','McGlynn, Kub and Bartoletti'),('35-532-4912','CITALOPRAM HYDROBROMIDE','Larkin, Ryan and Zemlak'),('36-271-8271','Alprazolam','Turcotte-Collins'),('36-472-3582','Demeclocycline Hydrochloride','Smith and Sons'),('36-552-4959','Nighttime','Rutherford-O\'Keefe'),('37-637-9444','Fexofenodine Hydrochloride','Kertzmann-Mraz'),('39-638-0076','Selenium Sulfide','Tillman-Zulauf'),('39-959-4630','Softlips','McDermott and Sons'),('44-308-2681','Enalapril Maleate and Hydrochl','Yundt-Boyle'),('44-311-4493','Penicillin V Potassium','Purdy, Hansen and Tremblay'),('44-685-6184','wal hist','Schmeler, Kuvalis and Beier'),('46-436-4172','Sulfamethoxazole and Trimethop','Lindgren Inc'),('47-498-3247','Quetiapine fumarate','Turner LLC'),('47-612-1434','9-1-1 Burnout','Cummerata Group'),('47-675-2790','Epirubicin Hydrochloride','Christiansen, Hand and O\'Hara'),('47-830-6977','LBEL NATURAL FINISH MOISTURIZI','Schroeder, Olson and Labadie'),('49-550-1535','Hydroxyzine Hydrochloride','Farrell Group'),('50-872-9309','Soft and Silky/Health Guard An','Auer-Bins'),('51-088-9940','Gabapentin','Will, Ziemann and Krajcik'),('51-217-2063','Penicillin V Potassium','Spencer, Abshire and Hickle'),('54-521-3033','Trazodone Hydrochloride','Hamill, Upton and Russel'),('54-545-4071','Painful Urination','Lehner-Mann'),('54-628-8290','Gabapentin','Mraz Inc'),('54-958-3886','Acid Reducer','Mann-Nienow'),('55-635-5977','Diltiazem Hydrochloride','Armstrong and Sons'),('56-841-3253','Amlodipine and Benazepril Hydr','Farrell-Kovacek'),('57-199-3901','Tizanidine','Adams-Kris'),('58-512-4111','Fluphenazine Hydrochloride','Jaskolski-Cassin'),('59-843-7052','Allergy Relief','Harvey, Larson and Marquardt'),('61-628-1874','Purmist','Sauer-Emmerich'),('62-832-5396','bareMinerals Prime Time BB Pri','Gutkowski and Sons'),('63-107-0883','Phenytoin Sodium','Monahan, Buckridge and Barton'),('65-037-3229','ShopRite Nasal Decongestant','Goldner-Hegmann'),('66-201-0506','TOPIRAMATE','Spinka LLC'),('66-824-7550','ENALAPRIL MALEATE','Jerde LLC'),('66-949-1919','RORIS SHINY CC','Ward LLC'),('67-383-7611','Fluconazole','Smith, Sawayn and Ryan'),('67-418-3628','Tretinoin','West-Brown'),('69-087-7735','risperidone','Boehm Group'),('69-229-6948','Menopause','Von, Vandervort and Buckridge'),('70-473-4457','Sun Mark allergy relief','Littel-Turner'),('71-368-3804','Mucus Relief DM MAX','Rolfson, Ruecker and Schultz'),('72-130-1514','NiteTime','Kassulke LLC'),('75-257-2128','CARE ONE','Walsh, O\'Connell and Harber'),('75-634-0648','Amlodipine Besylate and Benaze','Murphy LLC'),('77-186-5884','Valproic Acid','Kirlin, Ryan and Denesik'),('77-515-7193','Anticavity Fluoride Rinse','Fritsch LLC'),('80-628-4032','Sprayology Stress Relief','Greenholt Group'),('82-378-6187','Fenofibrate','Weber Group'),('82-493-7772','Lemon Zest Antibacterial Foami','Block, Fadel and Bernhard'),('82-559-6297','Chlordiazepoxide Hydrochloride','Ondricka, Fisher and Conroy'),('87-295-6874','Carvedilol','Kutch Inc'),('87-746-9439','Hydroxyzine','Erdman, Hermann and Jast'),('88-014-5341','Cheratussin DAC','Cummerata, Reynolds and Cruick'),('88-319-1478','Tacrolimus','Terry Group'),('88-992-6959','EVOXAC','Barrows-Fisher'),('91-882-0444','Arthritis HP','Conroy-Abshire'),('91-948-4373','Flucytosine','Wehner LLC'),('94-173-7105','Eye Itch Relief','Vandervort and Sons'),('95-563-9902','Mucus Relief','Bosco and Sons'),('96-169-2490','Ammonium Lactate','Schaden-MacGyver');
 /*!40000 ALTER TABLE `supplies` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `test`
+--
+
+DROP TABLE IF EXISTS `test`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `test` (
+  `ID_Dokter` int(20) NOT NULL,
+  `ID_Pasien` int(20) NOT NULL,
+  `No_Reg_Inf_Lb` int(20) NOT NULL,
+  PRIMARY KEY (`ID_Dokter`,`ID_Pasien`,`No_Reg_Inf_Lb`),
+  KEY `FK_Test_Pasien` (`ID_Pasien`),
+  KEY `FK_Test_Laboratorium` (`No_Reg_Inf_Lb`),
+  CONSTRAINT `FK_Test_Dokter` FOREIGN KEY (`ID_Dokter`) REFERENCES `dokter` (`ID_Dokter`),
+  CONSTRAINT `FK_Test_Laboratorium` FOREIGN KEY (`No_Reg_Inf_Lb`) REFERENCES `laboratorium` (`No_Reg_Inf_Lb`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `FK_Test_Pasien` FOREIGN KEY (`ID_Pasien`) REFERENCES `pasien` (`ID_Pasien`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `test`
+--
+
+LOCK TABLES `test` WRITE;
+/*!40000 ALTER TABLE `test` DISABLE KEYS */;
+INSERT INTO `test` VALUES (3,43,1091),(3,109,1092),(4,23,1092),(5,125,1100),(5,153,1089),(6,23,1098),(6,164,1087),(6,168,1094),(8,62,1092),(9,71,1097),(9,157,1095),(10,120,1099),(13,38,1091),(15,43,1088),(16,14,1091),(16,151,1097),(17,73,1086),(19,36,1099),(22,7,1092),(27,164,1097),(29,120,1096),(30,182,1089),(31,26,1094),(31,170,1091),(33,41,1090),(34,85,1090),(34,154,1098),(35,31,1094),(36,17,1092),(36,169,1097),(37,31,1097),(38,144,1086),(39,57,1093),(39,165,1088),(40,134,1087),(44,61,1097),(44,117,1092),(45,98,1093),(47,99,1089),(50,20,1095),(51,5,1092),(51,70,1094),(55,5,1100),(55,192,1092),(56,35,1090),(56,95,1099),(57,153,1096),(60,179,1092),(62,37,1091),(62,104,1096),(65,32,1095),(65,55,1095),(65,108,1097),(66,120,1099),(67,74,1097),(67,100,1096),(69,100,1087),(70,36,1095),(72,113,1095),(81,29,1096),(82,54,1096),(82,198,1096),(84,36,1086),(88,53,1095),(89,3,1090),(89,43,1086),(92,198,1096),(93,173,1099),(94,49,1094),(97,114,1097),(101,100,1089),(101,140,1094),(103,2,1090),(104,80,1091),(104,109,1093),(108,50,1097),(108,86,1094),(109,200,1097),(111,32,1090),(111,76,1087),(112,145,1099),(116,95,1092),(116,183,1092),(119,114,1097),(120,86,1097),(120,125,1096),(120,159,1086),(122,128,1098),(126,167,1089),(127,3,1087),(127,90,1095),(128,31,1093),(128,69,1088),(128,91,1099),(129,168,1093),(131,161,1088),(131,174,1087),(134,127,1098),(135,167,1096),(136,127,1090),(136,169,1091),(137,138,1093),(140,127,1097),(142,171,1089),(143,15,1091),(145,80,1100),(147,150,1100),(149,103,1087),(150,17,1097),(151,96,1093),(154,9,1091),(155,99,1087),(155,156,1097),(156,194,1094),(162,70,1092),(164,16,1097),(164,168,1091),(166,135,1091),(166,172,1097),(167,97,1090),(169,61,1100),(170,48,1088),(171,104,1092),(172,130,1096),(172,195,1089),(174,76,1093),(176,34,1094),(177,83,1089),(177,103,1090),(177,123,1088),(178,116,1088),(179,116,1096),(180,7,1098),(183,33,1098),(183,43,1096),(183,108,1090),(185,10,1091),(188,52,1089),(188,110,1094),(189,48,1087),(191,4,1095),(191,123,1097),(192,167,1097),(193,182,1093),(196,45,1093),(196,140,1098),(196,170,1087),(197,153,1086),(198,154,1086),(199,113,1098);
+/*!40000 ALTER TABLE `test` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -475,4 +535,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-17 16:11:42
+-- Dump completed on 2017-04-18 16:58:16
